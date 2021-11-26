@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="https://kit.fontawesome.com/c41c81dd84.js" crossorigin="anonymous"></script>
 
     <script src="js/scripts.js" async></script>
     <!--https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup-->
@@ -14,15 +15,16 @@
 
   <body>
     <header>
+      <nav><a href="#tagline">About</a> <a href="#where-when">Join</a> <a href="#gallery">Gallery</a></nav>
       <div>
         <div>
-          <div class="crest">
+          <div id="crest">
             <img src="./images/porsche.png" alt="" />
           </div>
-          <div class="club-name">
+          <div id="club-name">
             <h1>Club Struttgart</h1>
           </div>
-          <div class="club-location">
+          <div id="club-location">
             <span>La Jolla, CA</span>
             <span>32.832809 -117.271271</span>
           </div>
@@ -30,8 +32,34 @@
       </div>
     </header>
     <main>
-      <section></section>
-      <section></section>
+      <section id="tagline">
+        <p>
+          Do you love your Porsche? <br />
+          We love ours too.
+        </p>
+      </section>
+      <section id="where-when">
+        <div>
+          <div class="card">
+            <p>
+              More exclusive than the PCA<sup>*</sup>, <em>Club Struttgart</em> is a Porsche owners club for La Jolla and Del Mar residents
+              only.
+            </p>
+            <p>Come join us every Sunday at La Valencia. You must come in your Porsche.</p>
+          </div>
+          <div class="card">
+            <p>If you're new to the region, the Valencia is located at the following address:</p>
+            <p>
+              La Valencia <br />
+              1132 Prospect St <br />
+              La Jolla, CA 92037
+            </p>
+          </div>
+        </div>
+        <p><a href="#">Join us</a>.</p>
+      </section>
+      <section id="gallery">Gallery</section>
     </main>
+    <footer>Footer</footer>
   </body>
 </html>
