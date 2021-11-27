@@ -4,8 +4,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
   color: #111;
+  text-decoration: none;
 }
 
 sup {
@@ -22,6 +22,13 @@ sup {
 
 sup:hover {
   transform: rotate(45deg);
+}
+
+nav {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 body {
@@ -77,11 +84,11 @@ header > div > div {
   align-content: center;
 }
 
-nav {
-  z-index: 1000;
-  position: absolute;
-  top: 0;
-  left: 50%;
+@media only screen and (max-width: 811px) {
+  header > div > div {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 #crest {
@@ -89,6 +96,19 @@ nav {
   display: flex;
   align-items: center;
   width: 250px;
+}
+
+@media only screen and (max-width: 1081px) {
+  #crest {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 811px) {
+  #crest {
+    width: 150px;
+    margin: 0 auto;
+  }
 }
 
 #crest img {
@@ -103,6 +123,20 @@ nav {
   font-size: 300%;
 }
 
+@media only screen and (max-width: 1081px) {
+  #club-name {
+    font-size: 225%;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (max-width: 811px) {
+  #club-name {
+    font-size: 120%;
+    margin: 0 auto;
+  }
+}
+
 #club-location {
   grid-area: club-location;
   display: flex;
@@ -112,6 +146,18 @@ nav {
   font-size: 200%;
 }
 
+@media only screen and (max-width: 1081px) {
+  #club-location {
+    font-size: 150%;
+  }
+}
+
+@media only screen and (max-width: 811px) {
+  #club-location {
+    font-size: 100%;
+  }
+}
+
 section {
   min-height: 100vh;
 }
@@ -119,16 +165,55 @@ section {
 #tagline {
   background-color: #a43131;
   display: grid;
+  grid: 2 / 1;
   align-content: center;
   justify-content: center;
 }
 
-#tagline p {
-  width: 60vw;
+#tagline > div {
+  width: 40vw;
+  margin: 0 auto;
+}
+
+#tagline > div img {
+  width: 100%;
+}
+
+@media only screen and (max-width: 811px) {
+  #tagline > div {
+    width: 60vw;
+  }
+}
+
+@media only screen and (max-width: 412px) {
+  #tagline > div {
+    width: 100vw;
+  }
+}
+
+#tagline > p {
   font-size: 600%;
   text-align: center;
   font-family: "Contrail One", cursive;
   color: hsl(0, 53.9%, 29.9%);
+}
+
+@media only screen and (max-width: 1081px) {
+  #tagline > p {
+    font-size: 400%;
+  }
+}
+
+@media only screen and (max-width: 813px) {
+  #tagline > p {
+    font-size: 275%;
+  }
+}
+
+@media only screen and (max-width: 361px) {
+  #tagline > p {
+    font-size: 245%;
+  }
 }
 
 #where-when {
@@ -139,10 +224,44 @@ section {
   color: #222;
 }
 
+@media only screen and (max-width: 1281px) {
+  #where-when {
+    font-size: 175%;
+    padding: 2em 0;
+  }
+}
+
+@media only screen and (max-width: 811px) {
+  #where-when {
+    font-size: 150%;
+    padding: 3em 0;
+  }
+}
+
 #where-when > div {
   display: flex;
   align-content: center;
   justify-content: space-evenly;
+  width: 100%;
+}
+
+#where-when > div.mobile {
+  display: none;
+}
+
+@media only screen and (max-width: 811px) {
+  #where-when > div {
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  #where-when > div.desktop {
+    display: none;
+  }
+
+  #where-when > div.mobile {
+    display: block;
+  }
 }
 
 #where-when > div .card {
@@ -151,19 +270,61 @@ section {
   border-width: 0px;
 }
 
+@media only screen and (max-width: 811px) {
+  #where-when > div .card {
+    width: 90vw;
+    margin: 0 auto;
+  }
+}
+
 #where-when > div .card p {
   margin-bottom: 1em;
 }
 
+#where-when > div .card p strong {
+  background-color: hsl(35.2, 49.8%, 56.4%);
+}
+
 #where-when > p {
+  font-size: 125%;
   text-align: center;
+  margin-top: 1em;
+}
+
+@media only screen and (max-width: 811px) {
+  #where-when > p {
+    margin-top: 3em;
+  }
+}
+
+#where-when > p a {
+  position: relative;
+}
+
+/* https://codepen.io/srirachachacha/pen/pNyQoY */
+#where-when > p a::after {
+  content: "";
+  position: absolute;
+  top: 95%;
+  height: 3px !important;
+  width: 40%;
+  left: 30%;
+  background-color: hsl(35.2, 49.8%, 62.4%);
+  transition: 0.4s ease-out all 0.1s;
+}
+
+#where-when > p:hover a::after {
+  width: 90%;
+  left: 5%;
+  transition: 0.5s ease all;
+  background-color: hsl(0, 0%, 6.7%);
 }
 
 #gallery {
-  background-color: #464c47;
+  background-color: hsl(130, 4.1%, 28.6%);
 }
 
 footer {
-  background-color: #111;
-  color: #c29049;
+  background-color: hsl(0, 0%, 6.7%);
+  color: hsl(35.2, 49.8%, 52.4%);
 }
