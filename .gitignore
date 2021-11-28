@@ -1,0 +1,5 @@
+# Other files and folders
+.settings/
+.vscode/
+.git/
+desktop.files.json
