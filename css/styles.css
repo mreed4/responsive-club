@@ -327,6 +327,18 @@ section {
   grid-auto-flow: row;
 }
 
+@media only screen and (max-width: 811px) {
+  #gallery {
+    grid: repeat(3, 45vh) / repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  #gallery {
+    grid: repeat(6, 20vh) / 1fr;
+  }
+}
+
 #gallery > div {
   width: 100%;
   cursor: pointer;
@@ -357,6 +369,13 @@ section {
   background-image: url("../images/cars/porsche-gallery-6.jpg");
   grid-column: 1 / span 2;
   grid-row: 2 / span 2;
+}
+
+@media only screen and (max-width: 811px) {
+  #gallery > div:nth-child(4) {
+    grid-column: auto;
+    grid-row: auto;
+  }
 }
 
 #gallery > div:nth-child(5) {
