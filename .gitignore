@@ -2,4 +2,4 @@
 .settings/
 .vscode/
 .git/
-desktop.files.json
+**/desktop.files.json
