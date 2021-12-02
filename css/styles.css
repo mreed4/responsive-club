@@ -37,6 +37,10 @@ body {
   z-index: 0;
 }
 
+section {
+  min-height: 100vh;
+}
+
 header {
   position: relative;
   height: 100vh;
@@ -156,10 +160,6 @@ header > div > div {
   #club-location {
     font-size: 100%;
   }
-}
-
-section {
-  min-height: 100vh;
 }
 
 #tagline {
@@ -322,72 +322,109 @@ section {
 
 #gallery {
   background-color: hsl(130, 4.1%, 28.6%);
-  display: grid;
-  grid: repeat(3, 1fr) / repeat(3, 1fr);
-  grid-auto-flow: row;
-}
-
-@media only screen and (max-width: 811px) {
-  #gallery {
-    grid: repeat(3, 45vh) / repeat(2, 1fr);
-  }
-}
-
-@media only screen and (max-width: 415px) {
-  #gallery {
-    grid: repeat(6, 20vh) / 1fr;
-  }
 }
 
 #gallery > div {
-  width: 100%;
-  cursor: pointer;
-  background-position: center;
-  background-size: 100%;
-  opacity: 0.5;
-  transition: opacity 150ms linear, background-size 250ms linear;
+  display: grid;
+  grid: repeat(3, 33vh) / repeat(3, 1fr);
+  grid-auto-flow: row;
+  gap: 1em;
+  padding: 1em;
 }
 
-#gallery > div:hover {
-  opacity: 1;
-  background-size: 110%;
+@media only screen and (max-width: 811px) {
+  #gallery > div {
+    grid: repeat(3, 250px) / repeat(2, 1fr);
+  }
 }
 
-#gallery > div:nth-child(1) {
-  background-image: url("../images/cars/porsche-gallery-5.jpg");
+@media only screen and (max-width: 429px) {
+  #gallery > div {
+    grid: repeat(6, 250px) / 1fr;
+  }
 }
 
-#gallery > div:nth-child(2) {
-  background-image: url("../images/cars/porsche-gallery-1.jpg");
+#gallery > div > div {
+  overflow: hidden;
+  border: 6px solid snow;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+  transition: border 90ms linear;
 }
 
-#gallery > div:nth-child(3) {
-  background-image: url("../images/cars/porsche-gallery-3.jpg");
+#gallery > div > div:nth-child(1):hover {
+  border: 3px solid hsl(193, 52%, 55%);
 }
 
-#gallery > div:nth-child(4) {
-  background-image: url("../images/cars/porsche-gallery-6.jpg");
+#gallery > div > div:nth-child(4) {
   grid-column: 1 / span 2;
   grid-row: 2 / span 2;
 }
 
 @media only screen and (max-width: 811px) {
-  #gallery > div:nth-child(4) {
+  #gallery > div > div:nth-child(4) {
     grid-column: auto;
-    grid-row: auto;
+    grid-column: auto;
   }
 }
 
-#gallery > div:nth-child(5) {
-  background-image: url("../images/cars/porsche-gallery-2.jpg");
-  background-position: top;
+.car {
+  position: relative;
+  height: 100%;
+  transition: transform 90ms linear;
+  cursor: pointer;
 }
 
-#gallery > div:nth-child(6) {
+.car::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: saturate(0.05) contrast(1.3) brightness(1.3) opacity(0.5);
+  transition: filter 170ms linear;
+}
+
+.car:hover::before {
+  filter: saturate(1) contrast(1) brightness(1) opacity(1);
+}
+
+#gallery > div > div:hover .car {
+  transform: scale(1.05);
+  filter: none;
+}
+
+#gallery > div > div:nth-child(1) .car::before {
+  background-image: url("../images/cars/porsche-gallery-2.jpg");
+  background-position: center top;
+}
+
+#gallery > div > div:nth-child(2) .car::before {
+  background-image: url("../images/cars/porsche-gallery-1.jpg");
+  background-position: 35% center;
+}
+
+#gallery > div > div:nth-child(3) .car::before {
+  background-image: url("../images/cars/porsche-gallery-3.jpg");
+}
+
+#gallery > div > div:nth-child(4) .car::before {
+  background-image: url("../images/cars/porsche-gallery-6.jpg");
+}
+
+#gallery > div > div:nth-child(5) .car::before {
+  background-image: url("../images/cars/porsche-gallery-5.jpg");
+}
+
+#gallery > div > div:nth-child(6) .car::before {
   background-image: url("../images/cars/porsche-gallery-4.jpg");
+  background-position: left;
 }
 
 footer {
   background-color: hsl(0, 0%, 6.7%);
   color: hsl(35.2, 49.8%, 52.4%);
+  padding: 1em 0;
 }
